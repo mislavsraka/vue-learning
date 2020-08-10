@@ -1,27 +1,31 @@
 <template>
   <div class="container">
     <div>{{ msg }}</div>
-    <div class="square" :class="size" />
+    <div v-html="text" class="square" v-bind:class="size" v-bind:style="{backgroundColor:color}">
+  </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'HelloWorld',
-  props: {
-    msg: String,
-    size: String
-  },
-
+   name: 'Square',
+   props: {
+    color: String,
+    size: String,
+    text: String
+  }
 }
 </script>
 
 <style scoped>
 .square {
-  height: 200px;
-  width: 200px;
-  background-color: blue;
-}
+    background-color: blue;
+    color: #fff;
+    margin: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 .small {
   height: 50px;
   width: 50px;
